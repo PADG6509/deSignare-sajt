@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #f4f1eb; color: #2f2e2c; font-family: "Outfit", system-ui, sans-serif; }
+  a { color: #c98b2e; text-decoration: none; }
+  a:hover { color: #a86f1d; }
+</style>
+</helmet>
+
+<div style="min-height: 100vh; background: #f4f1eb; padding: 40px clamp(20px, 4vw, 56px) 64px; display: flex; flex-direction: column; gap: 36px;">
+
+  <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-end; justify-content: space-between;">
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div style="font-size: 18px; font-weight: 500; color: #c98b2e;">deSignare</div>
+      <h1 style="margin: 0; font-size: clamp(32px, 4vw, 48px); font-weight: 600; letter-spacing: -0.03em;">Prikaz za telefon i tablet</h1>
+    </div>
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+      <div onClick="{{ openPhone }}" style="cursor: pointer; font-size: 17px; font-weight: 500; background: #2f2e2c; color: #ffffff; padding: 16px 26px; border-radius: 999px; white-space: nowrap;">Otvori telefon u novom prozoru</div>
+      <div onClick="{{ openTablet }}" style="cursor: pointer; font-size: 17px; font-weight: 500; border: 1px solid #ddd8ce; background: #ffffff; color: #2f2e2c; padding: 16px 26px; border-radius: 999px; white-space: nowrap;">Otvori tablet u novom prozoru</div>
+      <div onClick="{{ openFull }}" style="cursor: pointer; font-size: 17px; font-weight: 500; border: 1px solid #ddd8ce; background: #ffffff; color: #2f2e2c; padding: 16px 26px; border-radius: 999px; white-space: nowrap;">Otvori pun ekran</div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start;">
+
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; width: 412px;">
+        <span style="font-size: 22px; font-weight: 600; letter-spacing: -0.02em;">Telefon</span>
+        <span style="font-size: 16px; font-weight: 300; color: #5c5a55;">390 × 844</span>
+      </div>
+      <div style="width: 412px; height: 866px; background: #2f2e2c; border-radius: 52px; padding: 11px; box-shadow: 0 30px 70px rgba(0,0,0,0.16);">
+        <iframe src="deSignare Sajt v2.dc.html" title="Telefon" style="width: 390px; height: 844px; border: 0; border-radius: 42px; background: #ffffff; display: block;"></iframe>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; width: 604px;">
+        <span style="font-size: 22px; font-weight: 600; letter-spacing: -0.02em;">Tablet</span>
+        <span style="font-size: 16px; font-weight: 300; color: #5c5a55;">834 × 1112, prikazano na 72%</span>
+      </div>
+      <div style="width: 604px; height: 826px; background: #2f2e2c; border-radius: 34px; padding: 14px; box-shadow: 0 30px 70px rgba(0,0,0,0.16); overflow: hidden;">
+        <div style="width: 576px; height: 798px; border-radius: 22px; overflow: hidden; background: #ffffff;">
+          <iframe src="deSignare Sajt v2.dc.html" title="Tablet" style="width: 834px; height: 1112px; border: 0; background: #ffffff; display: block; transform: scale(0.69); transform-origin: top left;"></iframe>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="max-width: 60ch; font-size: 18px; line-height: 1.55; font-weight: 300; color: #5c5a55;">Ispod 900 px širine heder se automatski menja u sendvič meni sa svim stranicama. Okviri iznad su živi sajt, možeš da klikaš i skroluješ u njima.</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  open(w, h) {
+    return () => window.open('deSignare Sajt v2.dc.html', '_blank', 'width=' + w + ',height=' + h + ',noopener');
+  }
+  renderVals() {
+    return {
+      openPhone: this.open(414, 880),
+      openTablet: this.open(860, 1000),
+      openFull: () => window.open('deSignare Sajt v2.dc.html', '_blank')
+    };
+  }
+}
+</script>
+</body>
+</html>
