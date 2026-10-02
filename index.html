@@ -23,9 +23,9 @@
 
   <div style="position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid #efece6;">
     <sc-if value="{{ isNarrow }}" hint-placeholder-val="{{ false }}">
-      <div style="padding: 8px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
-        <img src="uploads/deSignare.png" alt="deSignare" onClick="{{ goHome }}" style="height: 40px; width: auto; display: block; cursor: pointer; margin: -9px 0;">
-        <div onClick="{{ toggleMenu }}" style="flex: none; width: 42px; height: 42px; border-radius: 999px; border: 1px solid #ddd8ce; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; cursor: pointer; background: #ffffff;">
+      <div style="position: relative; padding: 10px 20px; display: flex; align-items: center; justify-content: center;">
+        <img src="uploads/deSignare.png" alt="deSignare" onClick="{{ goHome }}" style="height: 72px; width: auto; display: block; cursor: pointer; margin: -16px 0;">
+        <div onClick="{{ toggleMenu }}" style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); flex: none; width: 42px; height: 42px; border-radius: 999px; border: 1px solid #ddd8ce; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; cursor: pointer; background: #ffffff;">
           <div style="width: 18px; height: 2px; background: #2f2e2c; border-radius: 2px;"></div>
           <div style="width: 18px; height: 2px; background: #2f2e2c; border-radius: 2px;"></div>
           <div style="width: 18px; height: 2px; background: #2f2e2c; border-radius: 2px;"></div>
@@ -41,7 +41,7 @@
       </div>
 
       <div style="display: flex; align-items: center; justify-content: center;">
-        <img src="uploads/deSignare.png" alt="deSignare" onClick="{{ goHome }}" style="height: clamp(36px, 4vw, 52px); width: auto; display: block; cursor: pointer; margin: -11px 0;">
+        <img src="uploads/deSignare.png" alt="deSignare" onClick="{{ goHome }}" style="height: clamp(64px, 7vw, 100px); width: auto; display: block; cursor: pointer; margin: -21px 0;">
       </div>
 
       <div style="display: flex; gap: 6px; justify-content: flex-end; flex-wrap: wrap;">
@@ -54,9 +54,9 @@
 
   <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
     <div style="position: fixed; inset: 0; z-index: 40; background: #ffffff; display: flex; flex-direction: column;">
-      <div style="padding: 8px 20px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #efece6;">
-        <img src="uploads/deSignare.png" alt="deSignare" style="height: 40px; width: auto; display: block; margin: -9px 0;">
-        <div onClick="{{ toggleMenu }}" style="flex: none; width: 42px; height: 42px; border-radius: 999px; border: 1px solid #ddd8ce; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 22px; font-weight: 300; line-height: 1; color: #2f2e2c;">×</div>
+      <div style="position: relative; padding: 10px 20px; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #efece6;">
+        <img src="uploads/deSignare.png" alt="deSignare" style="height: 72px; width: auto; display: block; margin: -16px 0;">
+        <div onClick="{{ toggleMenu }}" style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); flex: none; width: 42px; height: 42px; border-radius: 999px; border: 1px solid #ddd8ce; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 22px; font-weight: 300; line-height: 1; color: #2f2e2c;">×</div>
       </div>
       <div style="flex: 1; padding: 20px 20px 32px; display: flex; flex-direction: column; gap: 6px; overflow-y: auto;">
         <sc-for list="{{ menuItems }}" as="item" hint-placeholder-count="6">
@@ -79,7 +79,7 @@
             <div style="font-size: 14px; font-weight: 500; color: #c98b2e;">3D dizajn, vizuelizacija i štampa</div>
             <h1 style="margin: 0; font-size: clamp(30px, 5vw, 56px); line-height: 1.05; font-weight: 600; letter-spacing: -0.03em; max-width: 18ch; text-wrap: pretty;">Od skice do dela koji drži toleranciju.</h1>
           </div>
-          <div style="display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: end; flex-wrap: wrap;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; align-items: end;">
             <p style="margin: 0; max-width: 46ch; font-size: 16px; line-height: 1.55; font-weight: 300; color: #5c5a55;">Specijalističke dizajnerske usluge za proizvode, sklopove i pojedinačne delove. Mašinski i estetski dizajn, fotorealna vizuelizacija i štampa prototipa.</p>
             <div style="display: flex; gap: 10px; flex-wrap: wrap;">
               <div onClick="{{ goContact }}" style="cursor: pointer; font-size: 15px; font-weight: 500; background: #2f2e2c; color: #ffffff; padding: 13px 22px; border-radius: 999px; white-space: nowrap;" style-hover="background: #46443f;">Zatražite ponudu</div>
